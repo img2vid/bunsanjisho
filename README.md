@@ -9,7 +9,7 @@
 <h1>🎌 分散辞書 · Bunsan Jisho 📖</h1>
 <h3><i>Your Advanced Japanese Dictionary & Study Platform</i></h3>
 <p>
-<b>An all-in-one, privacy-first web application designed to help you master Japanese vocabulary, Kanji, and grammar.</b><br>
+<b>An all-in-one web application designed to help you master Japanese vocabulary, Kanji, and grammar.</b><br>
 <code>No downloads. No account required. Just open and start learning.</code>
 </p>
 </div>
