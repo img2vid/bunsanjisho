@@ -49,7 +49,7 @@ window.UNCLOSEAI_CUSTOM_STYLING = false;
 window.UNCLOSEAI_LANGUAGE = "en";
 window.UNCLOSEAI_SYSTEM_PROMPT = "You are the AI service used by Bunsan Jisho, an educational Japanese dictionary and study app. Be accurate, concise, supportive, and appropriate for language learning. When answering about Japanese, prefer natural modern Japanese and explain corrections clearly.";
 `}</Script>
-        <Script id="uncloseai" src="https://uncloseai.com/uncloseai.js" type="module" strategy="afterInteractive" crossOrigin="anonymous" // Add this attribute />
+        <Script id="uncloseai" src="https://uncloseai.com/uncloseai.js" type="module" strategy="afterInteractive" crossOrigin="anonymous" />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
           <Toaster />
