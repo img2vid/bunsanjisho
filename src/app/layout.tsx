@@ -4,27 +4,57 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "next-themes";
 import Script from "next/script";
 
-// Read the base path from the environment for GitHub Pages deployment
-// Your workflow sets this to "/bunsanjisho" during the build
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const siteUrl = `https://img2vid.github.io${basePath}`;
 
 export const metadata: Metadata = {
-  title: "Bunsan Jisho — 分散辞書 | Advanced Japanese Dictionary",
+  metadataBase: new URL(siteUrl), // Crucial for Next.js to resolve relative URLs
+  title: "Bunsan Jisho — 分散辞書 | Advanced Japanese Dictionary & Study App",
   description:
-    "Bunsan Jisho is an advanced, feature-rich Japanese dictionary & study platform — words, kanji, radicals, sentences, SRS flashcards, quizzes and more. Created by Aishik Dutta.",
+    "Bunsan Jisho is a free, advanced Japanese dictionary & study platform. Search words, kanji, radicals, and sentences. Features SRS flashcards, quizzes, AI Tutor, and pitch accent visualization.",
   keywords: [
-    "Japanese dictionary",
-    "Bunsan Jisho",
-    "Tagaini Jisho",
-    "JLPT",
-    "kanji",
-    "flashcards",
-    "SRS",
-    "Aishik Dutta",
+    "Japanese dictionary", "Bunsan Jisho", "Tagaini Jisho", "JLPT", "kanji", 
+    "flashcards", "SRS", "Anki", "Japanese grammar", "learn Japanese", "日本語辞書"
   ],
   authors: [{ name: "Aishik Dutta" }],
   applicationName: "Bunsan Jisho",
-  // FIX 1: Prepend basePath so the browser requests /bunsanjisho/manifest.webmanifest instead of /manifest.webmanifest
+  
+  // Canonical URL (Prevents duplicate content issues)
+  alternates: {
+    canonical: siteUrl,
+  },
+
+  // Open Graph (Facebook, LinkedIn, Discord, Slack previews)
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    title: "Bunsan Jisho — 分散辞書 | Advanced Japanese Dictionary",
+    description: "A free, advanced Japanese dictionary & study platform with SRS flashcards, AI Tutor, and pitch accent visualization.",
+    siteName: "Bunsan Jisho",
+    // Note: You should add a 1200x630 image to your /public folder named 'og-image.png'
+    images: [
+      {
+        url: `${basePath}/og-image.png`, 
+        width: 1200,
+        height: 630,
+        alt: "Bunsan Jisho Interface Preview",
+      },
+    ],
+  },
+
+  // Twitter Card
+  twitter: {
+    card: "summary_large_image",
+    title: "Bunsan Jisho — 分散辞書 | Advanced Japanese Dictionary",
+    description: "A free, advanced Japanese dictionary & study platform with SRS flashcards, AI Tutor, and pitch accent visualization.",
+    images: [`${basePath}/og-image.png`],
+  },
+
+  verification: {
+    google: "n6NeOnmuOqAe2pYbqYbPj0p4pTz9tPBKXNMQhldEEa4", 
+  },
+
   manifest: `${basePath}/manifest.webmanifest`,
   icons: {
     icon: [
@@ -47,6 +77,26 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+// Structured Data (JSON-LD) for Google Rich Results
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Bunsan Jisho",
+  "url": siteUrl,
+  "description": "An advanced, feature-rich Japanese dictionary & study platform.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Aishik Dutta"
+  }
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,19 +104,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="antialiased bg-background text-foreground">
-        {/* UncloseAI Configuration */}
+        {/* ... Your existing UncloseAI scripts and ThemeProvider ... */}
+        
         <Script id="uncloseai-config" strategy="beforeInteractive">
           {`
             window.UNCLOSEAI_FLOATING_BUTTON = false;
             window.UNCLOSEAI_CUSTOM_STYLING = false;
             window.UNCLOSEAI_LANGUAGE = "en";
-            window.UNCLOSEAI_SYSTEM_PROMPT = "You are the AI service used by Bunsan Jisho, an educational Japanese dictionary and study app. Be accurate, concise, supportive, and appropriate for language learning. When answering about Japanese, prefer natural modern Japanese and explain corrections clearly.";
+            window.UNCLOSEAI_SYSTEM_PROMPT = "You are the AI service used by Bunsan Jisho, an educational Japanese dictionary and study app. Be accurate, concise, supportive, and appropriate for language learning.";
           `}
         </Script>
 
-        {/* UncloseAI Main Script */}
-        {/* FIX 2: Added crossOrigin="anonymous" to match the preload request credentials mode */}
         <Script
           id="uncloseai"
           src="https://uncloseai.com/uncloseai.js"
@@ -75,9 +130,6 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        {/* FIX 3: Model Fallback Patch */}
-        {/* The UncloseAI library has a hardcoded fallback to 'adamo1139/Hermes-3-Llama-3.1-8B-FP8-Dynamic', which no longer exists on their backend. 
-            This script pre-fetches the available models (currently 'turboderp/Qwen3.8-27B-exl3') and patches the internal getter functions to prevent 404 errors. */}
         <Script
           id="uncloseai-fix"
           type="module"
@@ -85,13 +137,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               import("https://uncloseai.com/uncloseai.js").then(async (module) => {
-                // 1. Pre-fetch models to populate the registry and dropdown
                 if (module.fetchModelsFromEndpoints) {
                   await module.fetchModelsFromEndpoints();
-                  console.log("✅ Pre-fetched UncloseAI models to fix hardcoded fallback.");
                 }
-
-                // 2. Monkey-patch the fallback model to fix immediate TTS/Chat requests
                 if (window.uncloseai && window.uncloseai.getSelectedModel) {
                   window.uncloseai.getSelectedModel = () => {
                     if (module.modelRegistry && Object.keys(module.modelRegistry).length > 0) {
@@ -99,7 +147,6 @@ export default function RootLayout({
                     }
                     return "turboderp/Qwen3.8-27B-exl3";
                   };
-
                   window.uncloseai.getSelectedModelEndpoint = () => {
                     if (module.modelRegistry && Object.keys(module.modelRegistry).length > 0) {
                       return module.modelRegistry[Object.keys(module.modelRegistry)[0]].url;
@@ -112,12 +159,7 @@ export default function RootLayout({
           }}
         />
 
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
           <Toaster />
         </ThemeProvider>
