@@ -86,7 +86,7 @@ export function searchWords(query: string, filters: WordFilters = {}, opts: Sear
 
   if (!q) {
     // browse mode: by frequency
-    return dedupeWords([...pool].sort((a, b) => (a.f ?? 99999) - (b.f ?? 99999)).slice(0, limit));
+    return dedupeWords([...pool].sort((a, b) => (a.f ?? 99999) - (b.f ?? 99999))).slice(0, limit);
   }
 
   const results: Scored<WordEntry>[] = [];
