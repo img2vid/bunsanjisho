@@ -6,7 +6,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { toast } from '@/hooks/use-toast';
 import {
   Send, Trash2, Mic, Square, Volume2, Bot, User, Sparkles, CheckCircle2, XCircle, Loader2,
@@ -123,9 +122,9 @@ export function TutorView() {
         ))}
       </ToggleGroup>
 
-      <Card className="flex-1 flex flex-col overflow-hidden"><CardContent className="p-0 flex flex-col h-full">
-        <ScrollArea className="flex-1 p-4" ref={undefined}>
-          <div ref={scrollRef} className="space-y-3 max-h-full overflow-y-auto bunsan-scroll pr-2" style={{ maxHeight: 'calc(100% - 0px)' }}>
+            <Card className="flex-1 flex flex-col overflow-hidden"><CardContent className="p-0 flex flex-col h-full">
+        <div className="flex-1 p-4 overflow-y-auto bunsan-scroll">
+          <div ref={scrollRef} className="space-y-3">
             {thread.length === 0 && (
               <div className="text-center py-10 space-y-3 anim-fade-up">
                 <div className="w-14 h-14 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center"><Bot className="h-7 w-7 text-primary" /></div>
@@ -163,7 +162,7 @@ export function TutorView() {
               </div>
             )}
           </div>
-        </ScrollArea>
+        </div>
         <div className="border-t p-3 space-y-2">
           {tutorContext && (
             <div className="flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/5 px-3 py-1.5 anim-fade-up">
