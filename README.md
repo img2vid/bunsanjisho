@@ -135,17 +135,6 @@ Bunsan Jisho isn't just a dictionary; it's an entire productivity suite for Japa
 
 <br>
 <hr>
-<br>
-
-<h2 align="center">🔒 Your Privacy is Absolute</h2>
-<div align="center">
-<img src="https://img.shields.io/badge/No%20Accounts-Required-brightgreen?style=flat-square" alt="No Accounts">
-<img src="https://img.shields.io/badge/No%20Server-Tracking-brightgreen?style=flat-square" alt="No Tracking">
-</div>
-<br>
-<p>
-In an era of constant data tracking, Bunsan Jisho takes a different approach. <b>Your custom lists, SRS progress, and personal notes live 100% locally in your browser.</b> We do not have servers tracking your study habits, and you never have to hand over your email address.
-</p>
 <p>
 ⚠️ <b>Important Backup Reminder:</b> Because your data is local, clearing your browser cache will erase your progress! The app includes a built-in <b>Backup Reminder</b>. Always use the <code>Export Backup</code> feature to safely download your progress file to your device.
 </p>
@@ -159,7 +148,6 @@ In an era of constant data tracking, Bunsan Jisho takes a different approach. <b
 <li>🔍 <b>Explore:</b> Click <code>Browse words</code> to explore the database of over 12,000 entries.</li>
 <li>📥 <b>Enroll:</b> Enroll words into your SRS directly from their detail sheets or by creating <i>My Lists</i> and using bulk actions.</li>
 <li>🧠 <b>Study:</b> Open your Study Queue and knock out your daily reviews to maintain your streak!</li>
-<li>⚡ <b>Pro-Tip:</b> Use the Command Palette to jump to the <i>Text Annotator</i> or <i>Conjugator</i> instantly while reading Japanese articles online.</li>
 </ol>
 
 <br>
@@ -175,9 +163,6 @@ If Bunsan Jisho has helped you on your Japanese learning journey, consider shari
 <b>Happy Studying! 頑張ってください！ (Good luck / Do your best!)</b> 🎌✨
 </p>
 <br>
-<p><i>Made with ❤️ for the Japanese learning community.</i></p>
+<p><i>Made with ❤️ by Aishik Dutta for the Japanese learning community.</i></p>
+<p><i>Feel free to email me if you have some suggestions: <a href="mailto:aishikdutta1000@gmail.com">aishikdutta1000@gmail.com</a></i></p>
 </div>
-Ask Qwen
-
-
-
