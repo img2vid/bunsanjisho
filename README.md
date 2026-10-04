@@ -164,5 +164,5 @@ If Bunsan Jisho has helped you on your Japanese learning journey, consider shari
 </p>
 <br>
 <p><i>Made with ❤️ by Aishik Dutta for the Japanese learning community.</i></p>
-<p><i>Feel free to email me if you have some suggestions: <a href="mailto:aishikdutta1000@gmail.com">aishikdutta1000@gmail.com</a></i></p>
+<p><i>Feel free to email me if you have any suggestions: <a href="mailto:aishikdutta1000@gmail.com">aishikdutta1000@gmail.com</a></i></p>
 </div>
