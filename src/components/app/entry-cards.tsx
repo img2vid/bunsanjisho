@@ -180,7 +180,7 @@ export function WordCard({ w, compact = false, idx = 0 }: { w: WordEntry; compac
         level: w.j || 4,
         meaning: gloss,
       });
-      toast({ title: 'AI example generated', description: `${data.ja}${data.en ? ` — ${data.en}` : ''}` });
+      toast({ title: 'AI example generated', duration: 20000, description: `${data.ja}${data.en ? ` — ${data.en}` : ''}` });
     } catch {
       toast({ title: 'AI example unavailable', variant: 'destructive' });
     } finally { setAiLoading(false); }
