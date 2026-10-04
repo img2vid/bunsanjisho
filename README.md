@@ -114,7 +114,9 @@ Bunsan Jisho isn't just a dictionary; it's an entire productivity suite for Japa
 
 <div align="center">
 
-<img src="features.png" alt="Features of Busan Jisho">
+<p align="center">
+  <img src="public/features.png" alt="Features of Bunsan Jisho" width="80%">
+</p>
 </div>
 
 <br>
@@ -123,7 +125,7 @@ Bunsan Jisho isn't just a dictionary; it's an entire productivity suite for Japa
 <p>Start every session with fresh material. The app provides a daily featured word and Kanji complete with native audio 🔊, stroke counts, and grade levels.</p>
 
 <blockquote>
-<b>洋よう服ふく (ようふく / <i>youfuku</i>)</b> 🔊<br>
+<b>洋服 (ようふく / <i>youfuku</i>)</b> 🔊<br>
 📖 <b>Level:</b> N5 | <b>Meaning:</b> Western-style clothes (cf. traditional Japanese clothes)<br>
 <br>
 <b>口 (くち / <i>kuchi</i>)</b><br>
