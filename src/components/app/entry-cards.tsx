@@ -5,7 +5,6 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { Separator } from '@/components/ui/separator';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { Textarea } from '@/components/ui/textarea';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent } from '@/components/ui/dropdown-menu';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
@@ -416,7 +415,7 @@ export function WordDetailSheet() {
               </div>
               {w.p && <div className="mt-3"><PitchViz w={w} /></div>}
             </SheetHeader>
-            <ScrollArea className="flex-1 bunsan-scroll">
+            <div className="flex-1 overflow-y-auto bunsan-scroll">
               <div className="p-6 pt-4 space-y-5">
                 {/* senses */}
                 <section>
@@ -516,7 +515,7 @@ export function WordDetailSheet() {
                   </div>
                 </section>
               </div>
-            </ScrollArea>
+            </div>
           </>
         )}
       </SheetContent>
@@ -570,9 +569,9 @@ export function KanjiDetailSheet() {
                 </div>
               </div>
             </SheetHeader>
-            <ScrollArea className="flex-1 bunsan-scroll">
+            <div className="flex-1 overflow-y-auto bunsan-scroll">
               <div className="p-6 pt-4 space-y-5">
-                {padChar && <PracticePad ch={padChar} onClose={() => setPadChar(null)} />}
+                {padChar && <PracticePad ch={
                 <section className="rounded-xl border p-4 bg-gradient-to-br from-primary/5 to-transparent anim-fade-up">
                   <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3 flex items-center gap-1.5">
                     <KanjiIcon className="h-3.5 w-3.5" />Stroke order <span className="jp-sans font-normal normal-case">書き順</span>
@@ -659,7 +658,7 @@ export function KanjiDetailSheet() {
                   </div>
                 </section>
               </div>
-            </ScrollArea>
+            </div>
           </>
         )}
         {k && <PracticeSheetDialog kanjiList={[k.c]} open={sheetOpen} onOpenChange={setSheetOpen} />}
@@ -691,7 +690,7 @@ export function SentenceDetailSheet() {
             <Button size="sm" variant="ghost" onClick={() => enroll([`s:${s.id}`])}><GraduationCap className="h-3.5 w-3.5 mr-1" />Study</Button>
           </div>
         </SheetHeader>
-        <ScrollArea className="flex-1 bunsan-scroll"><div className="p-6 space-y-4">
+        <div className="flex-1 overflow-y-auto bunsan-scroll"><div className="p-6 space-y-4">
           <div className="rounded-lg border p-4 text-sm text-muted-foreground">{s.en}</div>
           <div className="flex gap-1.5 flex-wrap"><JlptBadge level={s.j} />{(s.t || []).map(t => <Badge key={t} variant="outline" className="text-[10px]">{t}</Badge>)}</div>
           <Separator />
@@ -704,7 +703,7 @@ export function SentenceDetailSheet() {
             </div>
           </div>
           <div className="text-xs text-muted-foreground">{showFuriLocal ? 'Furigana available in the Annotator for full tokenization.' : ''}</div>
-        </div></ScrollArea>
+        </div></div>
       </SheetContent>
     </Sheet>
   );
