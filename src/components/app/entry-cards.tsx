@@ -571,7 +571,7 @@ export function KanjiDetailSheet() {
             </SheetHeader>
             <div className="flex-1 overflow-y-auto bunsan-scroll">
               <div className="p-6 pt-4 space-y-5">
-                {padChar && <PracticePad ch={
+                {padChar && <PracticePad ch={padChar} onClose={() => setPadChar(null)} />}
                 <section className="rounded-xl border p-4 bg-gradient-to-br from-primary/5 to-transparent anim-fade-up">
                   <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3 flex items-center gap-1.5">
                     <KanjiIcon className="h-3.5 w-3.5" />Stroke order <span className="jp-sans font-normal normal-case">書き順</span>
