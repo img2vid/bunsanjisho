@@ -1,0 +1,262 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-jp: var(--jp);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.985 0.005 80);
+  --foreground: oklch(0.22 0.01 60);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.01 60);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.01 60);
+  --primary: var(--accent-primary, oklch(0.62 0.16 5));
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.955 0.008 80);
+  --secondary-foreground: oklch(0.28 0.01 60);
+  --muted: oklch(0.955 0.008 80);
+  --muted-foreground: oklch(0.5 0.01 60);
+  --accent: oklch(0.945 0.02 20);
+  --accent-foreground: oklch(0.3 0.06 10);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.91 0.008 80);
+  --input: oklch(0.91 0.008 80);
+  --ring: var(--accent-primary, oklch(0.62 0.16 5));
+  --chart-1: oklch(0.62 0.16 5);
+  --chart-2: oklch(0.6 0.1 145);
+  --chart-3: oklch(0.66 0.12 80);
+  --chart-4: oklch(0.55 0.14 310);
+  --chart-5: oklch(0.63 0.14 40);
+  --sidebar: oklch(0.975 0.008 80);
+  --sidebar-foreground: oklch(0.22 0.01 60);
+  --sidebar-primary: var(--accent-primary, oklch(0.62 0.16 5));
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.945 0.02 20);
+  --sidebar-accent-foreground: oklch(0.3 0.06 10);
+  --sidebar-border: oklch(0.91 0.008 80);
+  --sidebar-ring: var(--accent-primary, oklch(0.62 0.16 5));
+  --jp: oklch(0.62 0.16 5);
+}
+
+/* Japanese accent palettes */
+[data-accent="sakura"] { --accent-primary: oklch(0.64 0.17 3); }
+[data-accent="shu"] { --accent-primary: oklch(0.55 0.18 27); }
+[data-accent="matcha"] { --accent-primary: oklch(0.55 0.11 155); }
+[data-accent="yamabuki"] { --accent-primary: oklch(0.68 0.14 75); }
+[data-accent="sumire"] { --accent-primary: oklch(0.55 0.13 305); }
+[data-accent="cha"] { --accent-primary: oklch(0.45 0.08 60); }
+
+.dark {
+  --background: oklch(0.16 0.01 60);
+  --foreground: oklch(0.93 0.005 80);
+  --card: oklch(0.2 0.012 60);
+  --card-foreground: oklch(0.93 0.005 80);
+  --popover: oklch(0.2 0.012 60);
+  --popover-foreground: oklch(0.93 0.005 80);
+  --primary: var(--accent-primary-dark, oklch(0.7 0.15 5));
+  --primary-foreground: oklch(0.14 0.01 60);
+  --secondary: oklch(0.25 0.012 60);
+  --secondary-foreground: oklch(0.93 0.005 80);
+  --muted: oklch(0.25 0.012 60);
+  --muted-foreground: oklch(0.65 0.008 80);
+  --accent: oklch(0.26 0.02 20);
+  --accent-foreground: oklch(0.9 0.02 20);
+  --destructive: oklch(0.65 0.2 25);
+  --border: oklch(0.28 0.012 60);
+  --input: oklch(0.28 0.012 60);
+  --ring: var(--accent-primary-dark, oklch(0.7 0.15 5));
+  --chart-1: oklch(0.7 0.15 5);
+  --chart-2: oklch(0.68 0.1 145);
+  --chart-3: oklch(0.72 0.12 80);
+  --chart-4: oklch(0.66 0.13 310);
+  --chart-5: oklch(0.7 0.13 40);
+  --sidebar: oklch(0.18 0.012 60);
+  --sidebar-foreground: oklch(0.93 0.005 80);
+  --sidebar-primary: var(--accent-primary-dark, oklch(0.7 0.15 5));
+  --sidebar-primary-foreground: oklch(0.14 0.01 60);
+  --sidebar-accent: oklch(0.26 0.02 20);
+  --sidebar-accent-foreground: oklch(0.9 0.02 20);
+  --sidebar-border: oklch(0.28 0.012 60);
+  --sidebar-ring: var(--accent-primary-dark, oklch(0.7 0.15 5));
+  --jp: oklch(0.72 0.15 5);
+}
+
+.dark[data-accent="sakura"] { --accent-primary-dark: oklch(0.73 0.15 3); }
+.dark[data-accent="shu"] { --accent-primary-dark: oklch(0.65 0.16 27); }
+.dark[data-accent="matcha"] { --accent-primary-dark: oklch(0.68 0.11 155); }
+.dark[data-accent="yamabuki"] { --accent-primary-dark: oklch(0.76 0.13 75); }
+.dark[data-accent="sumire"] { --accent-primary-dark: oklch(0.66 0.12 305); }
+.dark[data-accent="cha"] { --accent-primary-dark: oklch(0.58 0.08 60); }
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  body { @apply bg-background text-foreground; }
+}
+
+/* ---------- Bunsan Jisho custom styles ---------- */
+.jp-serif { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; }
+.jp-sans { font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", "Meiryo", sans-serif; }
+
+.washi-bg {
+  background-image:
+    radial-gradient(oklch(0.9 0.01 60 / 0.5) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.dark .washi-bg {
+  background-image:
+    radial-gradient(oklch(0.3 0.01 60 / 0.5) 1px, transparent 1px);
+}
+
+.seigaiha-bg {
+  background-image: radial-gradient(circle at 50% 100%, transparent 12px, oklch(0.62 0.16 5 / 0.06) 13px, oklch(0.62 0.16 5 / 0.06) 14px, transparent 15px);
+  background-size: 40px 20px;
+}
+
+.glass { backdrop-filter: blur(14px); background: oklch(1 0 0 / 0.72); }
+.dark .glass { background: oklch(0.2 0.012 60 / 0.72); }
+
+/* thin scrollbars */
+.bunsan-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.bunsan-scroll::-webkit-scrollbar-track { background: transparent; }
+.bunsan-scroll::-webkit-scrollbar-thumb { background: oklch(0.75 0.01 60 / 0.6); border-radius: 8px; }
+.bunsan-scroll::-webkit-scrollbar-thumb:hover { background: oklch(0.62 0.16 5 / 0.5); }
+
+/* furigana */
+rt { font-size: 0.5em; color: oklch(0.5 0.01 60); user-select: none; }
+.dark rt { color: oklch(0.68 0.01 60); }
+.furi-hidden rt { visibility: hidden; }
+
+/* pitch bars */
+.pitch-bar { transition: background-color .2s; }
+
+/* flashcard flip */
+.flip-scene { perspective: 1600px; }
+.flip-inner { transform-style: preserve-3d; transition: transform .5s cubic-bezier(.4,.1,.2,1); position: relative; }
+.flip-inner.flipped { transform: rotateX(180deg); }
+.flip-face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.flip-back { transform: rotateX(180deg); position: absolute; inset: 0; }
+
+/* subtle entry animations */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.anim-fade-up { animation: fadeUp .28s ease both; }
+
+@keyframes popIn { 0% { opacity: 0; transform: scale(.4); } 70% { transform: scale(1.15); } 100% { opacity: 1; transform: scale(1); } }
+.anim-pop { animation: popIn .3s cubic-bezier(.34,1.56,.64,1) both; }
+
+/* hero shimmer sweep — a slow light pass across the dashboard hero */
+@keyframes heroShimmer { 0% { transform: translateX(-130%) skewX(-12deg); } 55%, 100% { transform: translateX(460%) skewX(-12deg); } }
+.hero-shimmer { position: relative; overflow: hidden; }
+.hero-shimmer::after {
+  content: ''; position: absolute; top: -20%; bottom: -20%; left: 0; width: 22%;
+  background: linear-gradient(105deg, transparent, oklch(0.92 0.05 15 / 0.28), transparent);
+  transform: translateX(-130%) skewX(-12deg);
+  animation: heroShimmer 6s ease-in-out 1s infinite;
+  pointer-events: none;
+}
+.dark .hero-shimmer::after { background: linear-gradient(105deg, transparent, oklch(0.85 0.04 15 / 0.10), transparent); }
+
+/* reduced motion: disable shimmer entirely */
+@media (prefers-reduced-motion: reduce) {
+  .hero-shimmer::after { animation: none; display: none; }
+}
+
+@keyframes drawIn { from { stroke-dashoffset: var(--len); } to { stroke-dashoffset: 0; } }
+
+/* kanji watermark for practice pad */
+.pad-kanji { color: oklch(0.62 0.16 5 / 0.14); }
+
+@media print {
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+}
+.print-only { display: none; }
+
+/* ---------- live typography settings (applied on <html data-*> by the shell) ---------- */
+html[data-font-size="sm"] { font-size: 14px; }
+html[data-font-size="md"] { font-size: 16px; }
+html[data-font-size="lg"] { font-size: 17.5px; }
+html[data-font-size="xl"] { font-size: 19px; }
+
+/* Japanese font family preference: 'serif' | 'mincho' switches the gothic body text to Mincho */
+html[data-jp-font="serif"] .jp-sans,
+html[data-jp-font="mincho"] .jp-sans {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+}
+
+/* furigana display modes */
+html[data-furi="never"] rt { visibility: hidden; }
+html[data-furi="hover"] rt { visibility: hidden; }
+html[data-furi="hover"] ruby:hover rt,
+html[data-furi="hover"] ruby:focus-within rt { visibility: visible; }
+html[data-furi="hover"] ruby { cursor: help; }
+
+/* ---------- printable kanji practice sheets (genkō yōshi 原稿用紙) ---------- */
+.print-sheet-portal {
+  position: fixed; inset: 0; z-index: 9999; background: white; color: oklch(0.2 0.01 60);
+  overflow-y: auto; overscroll-behavior: contain;
+}
+.genkoshi {
+  background-image:
+    linear-gradient(to right, transparent calc(50% - 0.5px), oklch(0.78 0.01 60 / 0.55) calc(50% - 0.5px), oklch(0.78 0.01 60 / 0.55) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom, transparent calc(50% - 0.5px), oklch(0.78 0.01 60 / 0.55) calc(50% - 0.5px), oklch(0.78 0.01 60 / 0.55) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+}
+.genko-cell {
+  border: 1px solid oklch(0.72 0.01 60 / 0.8);
+  border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+}
+.trace-kanji { color: oklch(0.62 0.16 5 / 0.30); user-select: none; }
+
+/* on screen the print portal is never shown — it exists only for window.print() */
+.print-sheet-portal { display: none; }
+@media print {
+  /* hide the app shell and any open dialog, then show only the sheet */
+  body.printing-sheet .app-root { display: none !important; }
+  body.printing-sheet [role="dialog"] { display: none !important; }
+  body.printing-sheet .print-sheet-portal { display: block !important; background: white; color: oklch(0.2 0.01 60); }
+}
+
+/* print isolation v2 */

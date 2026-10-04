@@ -1,0 +1,58 @@
+{
+  "name": "Bunsan Jisho — 分散辞書",
+  "short_name": "Bunsan Jisho",
+  "description": "Advanced Japanese dictionary & study platform by Aishik Dutta — 12,000+ words, 2,600 kanji, SRS flashcards, 8 quiz modes, stroke-order animations and 20+ tools.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#faf7f2",
+  "theme_color": "#d05a6e",
+  "lang": "en",
+  "categories": [
+    "education",
+    "books",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Study session",
+      "short_name": "Study",
+      "description": "Start an SRS review session",
+      "url": "./?view=study"
+    },
+    {
+      "name": "Search words",
+      "short_name": "Words",
+      "description": "Browse the dictionary",
+      "url": "./?view=words"
+    },
+    {
+      "name": "Quiz Center",
+      "short_name": "Quizzes",
+      "description": "Test yourself",
+      "url": "./?view=quizzes"
+    }
+  ]
+}
