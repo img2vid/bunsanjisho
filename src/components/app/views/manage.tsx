@@ -796,7 +796,7 @@ function ExamAnalyticsCard() {
           <YAxis domain={[0, 180]} fontSize={10} />
           <RTooltip
             contentStyle={{ background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 12 }}
-            formatter={(value: number | string, name: string) => (name === 'score' ? [`${value}/180`, 'estimated score'] : [value, 'pass mark'])}
+            formatter={(value: number | string | undefined, name: string) => (name === 'score' ? [`${value ?? 0}/180`, 'estimated score'] : [value ?? 0, 'pass mark'])}
           />
           <Line dataKey="passMark" stroke="#94a3b8" strokeDasharray="4 4" strokeWidth={1.2} dot={false} name="pass mark" />
           <Line
