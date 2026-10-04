@@ -1,23 +1,26 @@
+// src/app/layout.tsx
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "next-themes";
 import Script from "next/script";
 
+// 1. Read the base path from the environment
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export const metadata: Metadata = {
   title: "Bunsan Jisho — 分散辞書 | Advanced Japanese Dictionary",
-  description:
-    "Bunsan Jisho is an advanced, feature-rich Japanese dictionary & study platform — words, kanji, radicals, sentences, SRS flashcards, quizzes and more. Created by Aishik Dutta.",
-  keywords: ["Japanese dictionary", "Bunsan Jisho", "Tagaini Jisho", "JLPT", "kanji", "flashcards", "SRS", "Aishik Dutta"],
-  authors: [{ name: "Aishik Dutta" }],
-  applicationName: "Bunsan Jisho",
-  manifest: "/manifest.webmanifest",
+  description: "Bunsan Jisho is an advanced, feature-rich Japanese dictionary & study platform...",
+  // ... other metadata ...
+  
+  // 2. Prepend basePath to manifest and icons
+  manifest: `${basePath}/manifest.webmanifest`,
   icons: {
     icon: [
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      { url: `${basePath}/icon-192.png`, sizes: "192x192", type: "image/png" },
+      { url: `${basePath}/icon-512.png`, sizes: "512x512", type: "image/png" },
     ],
-    apple: [{ url: "/icon-192.png", sizes: "192x192", type: "image/png" }],
+    apple: [{ url: `${basePath}/icon-192.png`, sizes: "192x192", type: "image/png" }],
   },
   appleWebApp: {
     capable: true,
